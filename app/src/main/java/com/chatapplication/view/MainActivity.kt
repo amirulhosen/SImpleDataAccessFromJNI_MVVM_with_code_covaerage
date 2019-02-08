@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         binding.sendBtn.setOnClickListener {
             if (!binding.msgBox.text.toString().trim().isEmpty()) {
                 binding.viewModel!!.addRecieverItem(binding.msgBox.text.toString())
+
                 binding.msgBox.setText("")
             }
         }
