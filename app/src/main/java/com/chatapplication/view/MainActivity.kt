@@ -34,8 +34,6 @@ class MainActivity : AppCompatActivity() {
             else
                 adapter.notifyItemInserted(it.size - 1)
         })
-
-
         binding.sendBtn.setOnClickListener {
             if (!binding.msgBox.text.toString().trim().isEmpty()) {
                 binding.viewModel!!.addRecieverItem(binding.msgBox.text.toString())
