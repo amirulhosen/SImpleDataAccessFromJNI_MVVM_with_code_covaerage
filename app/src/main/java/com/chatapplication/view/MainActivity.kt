@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         System.out.println(key1 + " and " + key2)
         chatViewModel.mMutableList.observe(this, Observer {
             binding.mRecycleView.smoothScrollToPosition(it!!.size - 1)
-//            adapter.notifyItemInserted(it.size - 1)
             if (it.size == 1)
                 adapter.notifyDataSetChanged()
             else
