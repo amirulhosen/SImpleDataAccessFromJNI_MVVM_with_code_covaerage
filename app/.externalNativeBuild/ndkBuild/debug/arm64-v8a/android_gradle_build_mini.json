@@ -1,0 +1,17 @@
+{
+  "buildFiles": [
+    "/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/src/main/jni/Android.mk",
+    "/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/src/main/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/Users/amirul/Library/Android/sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/src/main/jni/Application.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/build/intermediates/ndkBuild/debug/lib clean"
+  ],
+  "libraries": {
+    "keys-debug-arm64-v8a": {
+      "artifactName": "keys",
+      "buildCommand": "/Users/amirul/Library/Android/sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/src/main/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/src/main/jni/Application.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/build/intermediates/ndkBuild/debug/lib /Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/build/intermediates/ndkBuild/debug/obj/local/arm64-v8a/libkeys.so",
+      "abi": "arm64-v8a",
+      "output": "/Users/amirul/Documents/Sample/SImpleDataAccessFromJNI_MVVM_with_code_covaerage/app/build/intermediates/ndkBuild/debug/obj/local/arm64-v8a/libkeys.so"
+    }
+  }
+}
