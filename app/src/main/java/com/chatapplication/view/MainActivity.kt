@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel!!.addsenderItem()
         val adapter = ChatAdapter(binding.viewModel!!.mList)
         binding.mRecycleView.adapter = adapter
-//        adapter.notifyDataSetChanged()
         val key1 = String(Base64.decode(getNativeKey1(), Base64.DEFAULT))
         val key2 = String(Base64.decode(getNativeKey2(), Base64.DEFAULT))
         System.out.println(key1 + " and " + key2)
