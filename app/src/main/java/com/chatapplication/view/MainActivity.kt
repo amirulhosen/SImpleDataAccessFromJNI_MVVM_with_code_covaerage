@@ -10,6 +10,9 @@ import com.chatapplication.R
 import com.chatapplication.databinding.ActivityMainBinding
 import com.chatapplication.model.ChatModel
 import com.chatapplication.viewModel.ChatViewModel
+import android.content.Intent
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,25 +25,30 @@ class MainActivity : AppCompatActivity() {
         val chatViewModel = ChatViewModel(chatModel)
         binding.viewModel = chatViewModel
         binding.viewModel!!.addsenderItem()
-        val adapter = ChatAdapter(binding.viewModel!!.mList)
-        binding.mRecycleView.adapter = adapter
+//        val adapter = ChatAdapter(binding.viewModel!!.mList)
+//        binding.mRecycleView.adapter = adapter
         val key1 = String(Base64.decode(getNativeKey1(), Base64.DEFAULT))
         val key2 = String(Base64.decode(getNativeKey2(), Base64.DEFAULT))
         System.out.println(key1 + " and " + key2)
-        chatViewModel.mMutableList.observe(this, Observer {
-            binding.mRecycleView.smoothScrollToPosition(it!!.size - 1)
-            if (it.size == 1)
-                adapter.notifyDataSetChanged()
-            else
-                adapter.notifyItemInserted(it.size - 1)
-        })
-        binding.sendBtn.setOnClickListener {
-            if (!binding.msgBox.text.toString().trim().isEmpty()) {
-                binding.viewModel!!.addRecieverItem(binding.msgBox.text.toString())
 
-                binding.msgBox.setText("")
-            }
-        }
+        val intent = Intent(this, NetworkInfoActivity::class.java)
+        startActivityForResult(intent, 500)
+//        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
+//        chatViewModel.mMutableList.observe(this, Observer {
+//            binding.mRecycleView.smoothScrollToPosition(it!!.size - 1)
+//            if (it.size == 1)
+//                adapter.notifyDataSetChanged()
+//            else
+//                adapter.notifyItemInserted(it.size - 1)
+//        })
+//        binding.sendBtn.setOnClickListener {
+//            if (!binding.msgBox.text.toString().trim().isEmpty()) {
+//                binding.viewModel!!.addRecieverItem(binding.msgBox.text.toString())
+//
+//                binding.msgBox.setText("")
+//            }
+//        }
     }
 
     fun check() {
