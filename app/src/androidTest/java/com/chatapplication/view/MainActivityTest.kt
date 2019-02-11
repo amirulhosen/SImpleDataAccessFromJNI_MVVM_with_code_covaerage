@@ -44,7 +44,7 @@ class MainActivityInstrumentationTest {
 
     @Test
     fun testViewModelData() {
-        assertTrue(viewModel.addsenderItem())
+        viewModel.addsenderItem()
         viewModel.addRecieverItem("")
     }
 
