@@ -1,14 +1,14 @@
 package com.chatapplication.view
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
 import com.chatapplication.Constants
 import com.chatapplication.R
 import com.chatapplication.databinding.ChatItemBinding
@@ -19,6 +19,8 @@ import java.util.*
 
 class ChatAdapter(private val mArticles: List<ChatModel>) : RecyclerView.Adapter<ChatAdapter.BindingHolder>() {
     private var lastPosition = -1
+    var item = null;
+    var item1: ChatViewModel? = null;
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatAdapter.BindingHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -28,14 +30,18 @@ class ChatAdapter(private val mArticles: List<ChatModel>) : RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: BindingHolder, position: Int) {
 
-        val item = (ChatViewModel(mArticles[position]))
-        if (item.chatType == Constants.MESSAGE_RECEIVER.ordinal)
+//        val item = (ChatViewModel(mArticles[position]))
+        val item = ChatViewModel().chatModel
+        if ((item1!!.mList[position] as ChatModel).chatType == Constants.MESSAGE_RECEIVER.ordinal) {
             holder.binding.findViewById<TextView>(R.id.chat_he).visibility = View.GONE
-        else
+            holder.binding.findViewById<TextView>(R.id.chat_me).visibility = View.VISIBLE
+        } else {
             holder.binding.findViewById<TextView>(R.id.chat_me).visibility = View.GONE
+            holder.binding.findViewById<TextView>(R.id.chat_he).visibility = View.VISIBLE
+        }
 
         setAnimation(holder.itemView, position);
-        holder.takeItem(item)
+        holder.takeItem(item1!!)
     }
 
     override fun getItemCount(): Int {
@@ -49,9 +55,11 @@ class ChatAdapter(private val mArticles: List<ChatModel>) : RecyclerView.Adapter
         init {
             ViewBinding = DataBindingUtil.bind<ChatItemBinding>(itemView)
         }
+
         fun takeItem(item: ChatViewModel) {
             ViewBinding!!.setVariable(com.chatapplication.BR.todoitem, item)
             ViewBinding!!.executePendingBindings()
+//            ViewBinding!!.notifyPropertyChanged(com.chatapplication.BR.todoitem)
 
         }
     }
@@ -63,5 +71,13 @@ class ChatAdapter(private val mArticles: List<ChatModel>) : RecyclerView.Adapter
             viewToAnimate.startAnimation(anim)
             lastPosition = position
         }
+    }
+
+    fun updateData(it: ChatViewModel?) {
+        this.item1 = it!!
+        if (it.mList.size > 1)
+            notifyItemInserted(it.mList.size - 1)
+        else
+            notifyDataSetChanged()
     }
 }

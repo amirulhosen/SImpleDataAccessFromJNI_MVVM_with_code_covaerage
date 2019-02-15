@@ -40,7 +40,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:background="@drawable/rounded_rectangle_orange"
-                        android:text="@{todoitem.chatMessage}"
+                        android:text="@{todoitem.chatModel.chatString}"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textColor="@android:color/white"
                         android:padding="@dimen/size_8dp"/>
@@ -50,7 +50,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/rounded_rectangle_blue"
-                        android:text="@{todoitem.chatMessage}"
+                        android:text="@{todoitem.chatModel.chatString}"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textColor="@android:color/white"
                         android:padding="@dimen/size_8dp" />
